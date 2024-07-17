@@ -1,0 +1,32 @@
+@tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-2xl font-bold text-center text-slate-800;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  a {
+    @apply text-slate-600 underline;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply bg-slate-800 py-2 px-4 text-white rounded-xl hover:bg-white  hover:text-slate-800  hover:border-slate-800;
+  }
+  .btn-add {
+    @apply bg-green-800 py-2 px-4 text-white rounded-xl hover:bg-white  hover:text-green-800  hover:border-green-800;
+  }
+
+  .btn-remove {
+    @apply bg-red-800 py-2 px-4 text-white rounded-xl hover:bg-white  hover:text-red-800  hover:border-red-800;
+  }
+}
