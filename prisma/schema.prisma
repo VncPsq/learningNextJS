@@ -14,3 +14,4 @@ model Todo {
   description String @db.VarChar(255)
   isCompleted Boolean @default(false)
 }
+
