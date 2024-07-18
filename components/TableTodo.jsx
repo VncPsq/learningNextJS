@@ -1,7 +1,7 @@
 import { Table, TableBody, TableHead, TableHeadCell } from "flowbite-react";
 import Todo from "./Todo";
 
-export default function TableTodo({ todos }) {
+export default function TableTodo({ todos, deleteTodo, updateTodo }) {
   return (
     <div className="overflow-x-auto w-10/12">
       <Table hoverable className="text-center">
@@ -16,9 +16,12 @@ export default function TableTodo({ todos }) {
           {todos.map((todo) => (
             <Todo
               key={todo.id}
+              id={todo.id}
               title={todo.title}
               description={todo.description}
               isCompleted={todo.isCompleted}
+              deleteTodo={deleteTodo}
+              updateTodo={updateTodo}
             />
           ))}
         </TableBody>

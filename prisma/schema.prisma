@@ -14,3 +14,12 @@ model Todo {
   description String @db.VarChar(255)
   isCompleted Boolean @default(false)
 }
+
+model User {
+  id          Int      @id @default(autoincrement())
+  email     String   @db.VarChar(255)
+  password String @db.VarChar(255)
+  name   String   @db.VarChar(255)
+  isAdmin Boolean @default(false)
+
+}

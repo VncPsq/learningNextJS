@@ -11,8 +11,34 @@ export default function Home() {
   const [todoData, setTodoData] = useState([]);
 
   const fetchTodos = async () => {
-    const response = await axios("api/todos");
-    setTodoData(response.data.todos);
+    try {
+      const response = await axios("api/todos");
+      setTodoData(response.data.todos);
+    } catch (error) {
+      toast.error("Failed to fetch todo");
+    }
+  };
+
+  const deleteTodo = async (id) => {
+    try {
+      const response = await axios.delete("api/todos", {
+        data: { id },
+      });
+      toast.success(response.data.msg);
+      fetchTodos();
+    } catch (error) {
+      toast.error("Failed to delete todo");
+    }
+  };
+
+  const updateTodo = async (id, isCompleted) => {
+    try {
+      const response = await axios.put("api/todos", { id, isCompleted });
+      toast.success(response.data.msg);
+      fetchTodos();
+    } catch (error) {
+      toast.error("Failed to update todo");
+    }
   };
 
   useEffect(() => {
@@ -68,7 +94,11 @@ export default function Home() {
           Add Todo
         </button>
       </form>
-      <TableTodo todos={todoData} />
+      <TableTodo
+        todos={todoData}
+        deleteTodo={deleteTodo}
+        updateTodo={updateTodo}
+      />
     </>
   );
 }

@@ -4,10 +4,8 @@ export default function NavBar() {
       <h1 className="text-lg font-semibold">Todo APP</h1>
       <ul className="flex gap-10 text-md">
         {[
-          ["Home", "/dashboard"],
-          ["Products", "/products"],
-          ["About", "/about"],
-          ["Contact", "/contact"],
+          ["Home", "/"],
+          ["Login", "/login"],
         ].map(([title, url]) => (
           <li key={`Navbar ${title}`}>
             <a href={url}>{title}</a>
